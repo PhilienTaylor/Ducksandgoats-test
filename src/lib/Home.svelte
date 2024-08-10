@@ -1,6 +1,6 @@
 <script>
 import { Row, Col, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Button, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, InputGroup, Input } from 'sveltestrap'
-import trygun from '../../dir/init.js'
+import trygun from '../dir/init.js'
 
 let text = ''
 let test = 'no text'
