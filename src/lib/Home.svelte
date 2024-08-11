@@ -1,19 +1,27 @@
 <script>
 import { Row, Col, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Button, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, InputGroup, Input } from 'sveltestrap'
-import trygun from '../dir/init.js'
+import {trygun, user} from '../dir/init.js'
 
 let text = ''
 let test = 'no text'
 let arr = []
 
-trygun.get('testing').get('local').get({'.': {'<': '0'}, '%': 100000}).once().map().once((data) => {
+// setInterval(() => {console.log('arr: ', arr.length, arr)}, 3000)
+
+trygun.get('testing').get('local').once(console.log).map().once((data) => {
+    console.log('data: ', data)
     arr.push(data)
+    arr = arr
 })
 
 function onMessage(e){
     console.log(e)
-    arr.push(text)
-    trygun.get('testing').get('local').get(crypto.randomUUID()).put(text)
+    // arr.push(text)
+    // arr = arr
+    trygun.get('testing').get('local').get(crypto.randomUUID()).put(text).once((data) => {
+        arr.push(data)
+        arr = arr
+    })
 }
 </script>
 {#if arr.length}
