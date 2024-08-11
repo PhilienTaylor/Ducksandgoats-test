@@ -6,8 +6,6 @@ let text = ''
 let test = 'no text'
 let arr = []
 
-// setInterval(() => {console.log('arr: ', arr.length, arr)}, 3000)
-
 trygun.get('testing').get('local').once(console.log).map().once((data) => {
     console.log('data: ', data)
     arr.push(data)
@@ -16,12 +14,10 @@ trygun.get('testing').get('local').once(console.log).map().once((data) => {
 
 function onMessage(e){
     console.log(e)
+    trygun.get('testing').get('local').get(crypto.randomUUID()).put(text)
     // arr.push(text)
     // arr = arr
-    trygun.get('testing').get('local').get(crypto.randomUUID()).put(text).once((data) => {
-        arr.push(data)
-        arr = arr
-    })
+    text = ''
 }
 </script>
 {#if arr.length}
